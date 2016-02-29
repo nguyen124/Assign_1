@@ -1,4 +1,4 @@
-
+// This file include all functions service for Primme Number
 
 public class PrimeService {
 	// check is number a prime number
