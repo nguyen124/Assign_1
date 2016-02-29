@@ -1,6 +1,6 @@
 public class Main {
-
 	public static void main(String[] args) {
+		//hello
 		// TODO Auto-generated method stub
 		// Generator.writeGraphOfPrimesToFile("");
 		PrimesGraph graph = new PrimesGraph();
