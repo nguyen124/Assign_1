@@ -1,7 +1,16 @@
-// This file include all functions service for Primme Number
+/*
+ *  This file contain the functions related to prime numbers 
+ *  Author: Sadi, Prasi
+ */
 
 public class PrimeService {
-	// check is number a prime number
+
+	/*
+	 *  This function check if a number is prime number. It returns True if it is
+	 *  prime and False otherwise
+	 *  Input: Integer
+	 *  Output: Boolean
+	 */
 	public static boolean isPrime(int num) {
 		// 1 is not prime
 		if (num == 1) {
@@ -25,8 +34,12 @@ public class PrimeService {
 		return true;
 	}
 
-	// Check to see if 2 primes are 1 digit away different; prim1 < prime2, if
-	// its not then swap them;
+	/* 
+	 * Check to see if 2 primes are 1 digit away different. If they are then return True,
+	 * False if otherwise.
+	 * Input: Integer, Integer
+	 * Output: Bolean
+	 */
 	public static boolean isOneDigitAwayDiffer(int prime1, int prime2) {
 		// HashSet<Integer> set1 = new HashSet<Integer>();
 		// HashSet<Integer> set2 = new HashSet<Integer>();

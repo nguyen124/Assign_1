@@ -1,3 +1,7 @@
+/*
+ * This file contain the functions related to the graph of primes
+ * Author: Hai Nguyen, Sadi, Prasi, Sakara
+ */
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -14,18 +18,27 @@ public class PrimesGraph {
 		graph = Generator.generateGraph();
 	}
 
-	// find the shortest path between 2 primes
+	/*
+	 * This fuction return the path between 2 primes
+	 * Input: Integer, Integer
+	 * Output: The path
+	 */
 	public String findPath(int prime1, int prime2) {
 		// visited = new TreeSet<Integer>();
 		return breadthFirstSearch(prime1, prime2);
 	}
 
-	// apply BFS in finding shortest path between 2 primes.
-	// Because 2 adjacent prime numbers are 1 digit away different,
-	// we consider that 1 digit is 1 unit of distance between 2 prime numbers
-	// . For that reason, to find the shortest path between 2 prime numbers we
-	// just need to scan every connected neighbors of 1 prime recursively until
-	// we hit the second prime number.
+	/* 
+	 * apply BFS in finding shortest path between 2 primes.
+	 * Because 2 adjacent prime numbers are 1 digit away different,
+	 * we consider that 1 digit is 1 unit of distance between 2 prime numbers
+	 * . For that reason, to find the shortest path between 2 prime numbers we
+	 * just need to scan every connected neighbors of 1 prime recursively until
+	 * we hit the second prime number.
+	 * 
+	 * Input: Integer, Integer
+	 * Output: String
+	 */
 	public String breadthFirstSearch(Integer prime1, Integer prime2) {
 
 		// This variable is used to traced back to the first prime when
@@ -98,9 +111,14 @@ public class PrimesGraph {
 		return "Impossible";
 	}
 
-	// scan the whole graph to get the maximum distance, each time we
-	// scan a list of neighbors of 1 prime, it means we go more further 1 unit
-	// of distance
+	/* 
+	 * scan the whole graph to get the maximum distance, each time we
+	 * scan a list of neighbors of 1 prime, it means we go more further 1 unit
+	 * of distance. Because we know the graph is fully connected so we can begin to travel the 
+	 * graph at any point in the graph
+	 * Input: void
+	 * Output: int
+	 */
 	public int getMaxDistance() {
 		// This variable is used to see how far we've gone away from the source
 		TreeMap<Integer, Integer> distance = new TreeMap<Integer, Integer>();
@@ -155,10 +173,13 @@ public class PrimesGraph {
 		return maxSeperation;
 	}
 
-	// Check to see if all nodes are connected or not by counting all black
-	// nodes.
-	// if the total of all black nodes is not equal to the number of nodes then
-	// there is some pair of nodes which are not connected
+	/* 
+	 * Check to see if all nodes are connected or not by counting all black
+	 * nodes.if the total of all black nodes is not equal to the number of nodes 
+	 * then there is some pair of nodes which are not connected
+	 * Input: void
+	 * Output: boolean
+	 */
 	public boolean areAllNodesConnected() {
 		// This variable is used to mark the node of graph. Each node is 1 prime
 		// number

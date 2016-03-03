@@ -1,3 +1,7 @@
+/*
+ *  This is Main file which contains the main function - entry point of the program
+ */
+
 public class Main {
 	public static PrimesGraph graph = null;
 
