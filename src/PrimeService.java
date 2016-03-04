@@ -6,10 +6,10 @@
 public class PrimeService {
 
 	/*
-	 *  This function check if a number is prime number. It returns True if it is
-	 *  prime and False otherwise
-	 *  Input: Integer
-	 *  Output: Boolean
+	 * This function check if a number is prime number. It returns True if it is
+	 * prime and False otherwise 
+	 * Input: Integer 
+	 * Output: Boolean
 	 */
 	public static boolean isPrime(int num) {
 		// 1 is not prime
@@ -34,15 +34,14 @@ public class PrimeService {
 		return true;
 	}
 
-	/* 
-	 * Check to see if 2 primes are 1 digit away different. If they are then return True,
-	 * False if otherwise.
-	 * Input: Integer, Integer
+	/*
+	 * Check to see if 2 primes are 1 digit away different. If they are then
+	 * return True, False if otherwise. 
+	 * 
+	 * Input: Integer, Integer 
 	 * Output: Bolean
 	 */
 	public static boolean isOneDigitAwayDiffer(int prime1, int prime2) {
-		// HashSet<Integer> set1 = new HashSet<Integer>();
-		// HashSet<Integer> set2 = new HashSet<Integer>();
 		// if prime1 is bigger then prime2 then swap them
 		if (prime1 != prime2) {
 			// swap order of prime1, prime2 make prime1 always smaller than
@@ -75,7 +74,7 @@ public class PrimeService {
 			// prime1 became 0 , countDifference ==0 or 1 now,
 			// and if prime2 is still not 0 then keep checking with prime2
 			if (prime2 != 0) {
-				//if 2 primes have last digits which are identical up to now
+				// if 2 primes have last digits which are identical up to now
 				if (countDifference == 0) {
 					int lastDigitOfPrime2;
 					do {
@@ -83,25 +82,27 @@ public class PrimeService {
 						prime2 = prime2 / 10;
 						// keep checking the last number of prime2
 					} while (lastDigitOfPrime2 == 0 & prime2 != 0);
-					// if prime2 is not 0 and lastDigitOfPrime2 is 0, 
-					// this case gonna be like 7 and 2207 (Assumpt 2207 is prime)
-					// and this is not 1 digit away different
+					// if prime2 is not 0 and lastDigitOfPrime2 is 0,
+					// this case gonna be like 7 and 2207 (Assumpt 2207 is
+					// prime) and this is not 1 digit away different
 					if (prime2 != 0) {
 						return false;
-					// else, this case will be like 3 and 2003, when we remove
-					// 2, 2003 will become 3 and it is 1 digit away different
+						// else, this case will be like 3 and 2003, when we
+						// remove 2, 2003 will become 3 and it is 1 digit away
+						// different
 					} else {
 						return true;
 					}
-				// else mean countDiffence fis 1 now, but because prime2 is still
-				// not 0 yet then it means this can't be 1 digit away different
+					// else mean countDiffence fis 1 now, but because prime2 is
+					// still not 0 yet then it means this can't be 1 digit away
+					// different
 				} else {
 					return false;
 				}
-			// if prime2 = 0 and countDifference is 1, it means 2 primes are 1
-			// digit away different. countDifference here has to be at least 1 because
-			// prime1 and prime2 are different. Example 3 turn into 7 is 1
-			// digit away different
+				// if prime2 = 0 and countDifference is 1, it means 2 primes are
+				// 1 digit away different. countDifference here has to be at least
+				// 1 because prime1 and prime2 are different. Example 3 turn into 7 is 1
+				// digit away different
 			} else {
 				return true;
 			}
@@ -110,6 +111,4 @@ public class PrimeService {
 		return false;
 	}
 
-	
-	
 }
