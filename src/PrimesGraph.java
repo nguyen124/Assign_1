@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class PrimesGraph {
-	public static int LIMIT = 100000;
+	public static final int LIMIT = 100000;
 
 	public enum Color {
 		WHITE, BLACK, GRAY
