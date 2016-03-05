@@ -51,12 +51,9 @@ public class PrimesGraph {
 		TreeMap<Integer, Integer> distance = new TreeMap<Integer, Integer>();
 		// This variable is used to mark the node of graph. Each node is 1 prime
 		// number. The node that has all neighbours checked will be label as
-		// black node
-		// so we don't have to visit it again. The neighbour will be label as a
-		// gray
-		// node, it means that we're going to check its neighbours. The left
-		// nodes will
-		// be labeled as white node, it means we haven't done anything with
+		// black node so we don't have to visit it again. The neighbour will be label as a
+		// gray node, it means that we're going to check its neighbours. The left
+		// nodes will be labeled as white node, it means we haven't done anything with
 		// them yet.
 		TreeMap<Integer, Color> color = new TreeMap<Integer, Color>();
 
@@ -123,7 +120,9 @@ public class PrimesGraph {
 	 * For each node of the graph, we begin to travel the whole graph from that
 	 * node to see how far we can go. The possible maxium serperation is the
 	 * furthest distance we can go 
-	 * Input: void Output: int
+	 * 
+	 * Input: void 
+	 * Output: int
 	 */
 	public int getMaxDistance() {
 		// This variable is used to see how far we've gone away from the source
@@ -188,17 +187,16 @@ public class PrimesGraph {
 	/*
 	 * Check to see if all nodes are connected or not by counting all black
 	 * nodes.if the total of all black nodes is not equal to the number of nodes
-	 * then there is some pair of nodes which are not connected Input: void
+	 * then there is some pair of nodes which are not connected 
+	 * 
+	 * Input: void
 	 * Output: boolean
 	 */
 	public boolean areAllNodesConnected() {
 		// This variable is used to mark the node of graph. Each node is 1 prime
-		// number
-		// The node that has all neighbours checked will be label as black node
-		// so we
-		// don't have to visit it again. The neighbour will be label as a gray
-		// node, it
-		// means that we're going to check its neighbours. The left nodes will
+		// number. The node that has all neighbours checked will be label as black node
+		// so we don't have to visit it again. The neighbour will be label as a gray
+		// node, it means that we're going to check its neighbours. The left nodes will
 		// be labeled as white node, it means we haven't done anything with
 		// them yet.
 		TreeMap<Integer, Color> color = new TreeMap<Integer, Color>();
