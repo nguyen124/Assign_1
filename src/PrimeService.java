@@ -1,13 +1,14 @@
 /*
  *  This file contain the functions related to prime numbers 
- *  Author: Sadi, Prasi
+ *  Author: Hai Nguyen, Harika Kopparapu 
  */
 
 public class PrimeService {
 
 	/*
 	 * This function check if a number is prime number. It returns True if it is
-	 * prime and False otherwise 
+	 * prime and False otherwise
+	 *  
 	 * Input: Integer 
 	 * Output: Boolean
 	 */

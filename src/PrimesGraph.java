@@ -1,6 +1,7 @@
+
 /*
  * This file contain the functions related to the graph of primes
- * Author: Hai Nguyen, Sadi, Prasi, Sakara
+ * Author: Hai Nguyen, Mohammed Shaikh, Gurupur Prashant Prabhu, Harika Kopparapu
  */
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -19,12 +20,15 @@ public class PrimesGraph {
 	}
 
 	/*
-	 * This fuction return the path between 2 primes Input: Integer, Integer
+	 * This fuction return the path between 2 primes 
+	 * 
+	 * Input: Integer, Integer
 	 * Output: The path
 	 */
 	public String findPath(int prime1, int prime2) {
 		// visited = new TreeSet<Integer>();
 		return breadthFirstSearch(prime1, prime2);
+
 	}
 
 	/*
@@ -35,7 +39,8 @@ public class PrimesGraph {
 	 * connected neighbors of 1 prime recursively until we hit the second prime
 	 * number. The function return "Impossible" if 2 primes are not connected.
 	 * 
-	 * Input: Integer, Integer Output: String
+	 * Input: Integer, Integer 
+	 * Output: String
 	 */
 	public String breadthFirstSearch(Integer prime1, Integer prime2) {
 
@@ -55,6 +60,10 @@ public class PrimesGraph {
 		// them yet.
 		TreeMap<Integer, Color> color = new TreeMap<Integer, Color>();
 
+		// if 2 primes are identical then return Separation 0
+		if (prime1 == prime2) {
+			return "Separation: 0";
+		}
 		// we initiate values
 		for (int key : graph.keySet()) {
 			predecessor.put(key, -1);
@@ -82,16 +91,17 @@ public class PrimesGraph {
 					distance.put(neighbor, distance.get(prime) + 1);
 					predecessor.put(neighbor, prime);
 					color.put(neighbor, Color.GRAY);
-					String path = "";
+
 					Integer dis = distance.get(neighbor);
 					// traced back the predessor when we hit the destination
 					while (predecessor.get(neighbor) != -1) {
-						path += neighbor + " ";
+						// path += neighbor + " ";
 						neighbor = predecessor.get(neighbor);
 					}
-					path += neighbor;
-					return path + "\nSeperation: " + dis;
-				}// else we keep bring all white neighbour nodes into gray
+					// path += neighbor;
+					return "Separation: " + dis;
+
+				} // else we keep bring all white neighbour nodes into gray
 				else if (color.get(neighbor) == Color.WHITE) {
 					int tempDistance = distance.get(prime) + 1;
 					distance.put(neighbor, tempDistance);
@@ -110,23 +120,23 @@ public class PrimesGraph {
 	}
 
 	/*
-	 * For each node of the graph, we begin to travel the whole graph from that node to see
-	 * how far we can go. The possible maxium serperation is the furthest distance we can go   
-	 * Input: void 
-	 * Output: int
+	 * For each node of the graph, we begin to travel the whole graph from that
+	 * node to see how far we can go. The possible maxium serperation is the
+	 * furthest distance we can go 
+	 * Input: void Output: int
 	 */
 	public int getMaxDistance() {
 		// This variable is used to see how far we've gone away from the source
 		TreeMap<Integer, Integer> distance = new TreeMap<Integer, Integer>();
 		// This variable is used to mark the node of graph. Each node is 1 prime
 		// number The node that has all neighbours checked will be label as
-		// black node so we don't have to visit it again. The neighbour will be 
-		// label as a gray node, it means that we're going to check its 
+		// black node so we don't have to visit it again. The neighbour will be
+		// label as a gray node, it means that we're going to check its
 		// neighbours. The left nodes will be labeled as white node, it means we
 		// haven't done anything with them yet.
 		TreeMap<Integer, Color> color = new TreeMap<Integer, Color>();
 		// we initiate values
-		
+
 		// the source is put into gray because it's going to be checked
 		// for its neighbours
 
@@ -138,14 +148,14 @@ public class PrimesGraph {
 				color.put(k, Color.WHITE);
 			}
 			Integer start = key;
-			//Integer start = 79589;
+			// Integer start = 79589;
 			color.put(start, Color.GRAY);
 			distance.put(start, 0);
 			// This queue will hold the gray nodes
 			ArrayList<Integer> queue = new ArrayList<Integer>();
 			queue.add(start);
-			// Max seperation variable initialized by -1
-			int maxSeperation = 0;
+			// Max Separation variable initialized by -1
+			int maxSeparation = 0;
 			// While all gray nodes has not been checked yet then
 			while (queue.size() != 0) {
 				Integer prime = queue.get(0);
@@ -154,8 +164,8 @@ public class PrimesGraph {
 					Integer neighbor = neighbours.get(i);
 					if (color.get(neighbor) == Color.WHITE) {
 						int tempDistance = distance.get(prime) + 1;
-						if (tempDistance > maxSeperation) {
-							maxSeperation = tempDistance;
+						if (tempDistance > maxSeparation) {
+							maxSeparation = tempDistance;
 						}
 						distance.put(neighbor, tempDistance);
 						color.put(neighbor, Color.GRAY);
@@ -166,8 +176,8 @@ public class PrimesGraph {
 				// it into blacked so we don't have to check it again
 				queue.remove(0);
 				color.put(prime, Color.BLACK);
-				if (max < maxSeperation) {
-					max = maxSeperation;
+				if (max < maxSeparation) {
+					max = maxSeparation;
 				}
 			}
 

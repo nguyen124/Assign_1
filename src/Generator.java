@@ -1,6 +1,6 @@
 /*
  * This class has functions related to generate the Graph of Prime Numbers 
- * Author: Hai Nguyen, Harika Kopparapu
+ * Author: Gurupur Prashant Prabhu
  */
 
 import java.io.BufferedWriter;
@@ -62,6 +62,7 @@ public class Generator {
 	/*
 	 * This is just a test function, write out the graph into the file to see if
 	 * we construct the graph correctly or not 
+	 * 
 	 * Input: path of the output file
 	 * Output: file contain the graph of primes
 	 */
