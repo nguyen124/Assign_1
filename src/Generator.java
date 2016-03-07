@@ -30,21 +30,14 @@ public class Generator {
 	 */
 	public static TreeMap<Integer, ArrayList<Integer>> generateGraph() {
 		// We using TreeMap data structure of java to represent graph
-		// the key is prime and the value is the list of primes that are 1
-		// digit away diffrent with the key
 		TreeMap<Integer, ArrayList<Integer>> graph = new TreeMap<Integer, ArrayList<Integer>>();
 		ArrayList<Integer> primes = new ArrayList<Integer>();
 
-		// First we have to find a list of prime numbers from 1 to 100000
 		for (int i = 0; i < PrimesGraph.LIMIT; i++) {
 			if (PrimeService.isPrime(i)) {
 				primes.add(i);
 			}
 		}
-
-		// For every single pair of prime number
-		// we check is they are 1 digit away by function isOneDigitAwayDiffer
-		// If they are then we add them to the graph.
 		for (int i = 0; i < primes.size(); i++) {
 			int prime = primes.get(i);
 			ArrayList<Integer> neighbours = new ArrayList<Integer>();
@@ -66,7 +59,7 @@ public class Generator {
 	 * Input: path of the output file
 	 * Output: file contain the graph of primes
 	 */
-	public static void writeGraphOfPrimesToFile(String outputPath) {
+	public static void writeGraphOfPrimesToFile() {
 		ArrayList<Integer> primes = new ArrayList<Integer>();
 		for (int i = 0; i < PrimesGraph.LIMIT; i++) {
 			if (PrimeService.isPrime(i)) {
@@ -94,6 +87,5 @@ public class Generator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 }

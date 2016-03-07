@@ -15,17 +15,13 @@ public class Main {
 	private static PrimesGraph graph = null;
 
 	public static void main(String[] args) {
-
 		Scanner scanner = new Scanner(System.in);
 		String[] parameters;
-		
 		if (graph == null) {
-			// System.out.println("Init Prime Numbers Graph for the first time
-			// ... Please wait");
+			// System.out.println("Init Prime Numbers Graph for the first time ... Please wait");
 			graph = new PrimesGraph();
 			// System.out.println("Done!");
 		}
-		
 		do {
 			// System.out.println("Please input 2 primes");
 			parameters = scanner.nextLine().split(" ");
@@ -34,10 +30,12 @@ public class Main {
 					int prime1 = Integer.parseInt(parameters[0]);
 					int prime2 = Integer.parseInt(parameters[1]);
 					if (PrimeService.isPrime(prime1) && PrimeService.isPrime(prime2)) {
-						if (0 < prime1 && prime1 < PrimesGraph.LIMIT && 0 < prime2 && prime2 < PrimesGraph.LIMIT) {
+						if (0 < prime1 && prime1 < PrimesGraph.LIMIT 
+								&& 0 < prime2 && prime2 < PrimesGraph.LIMIT) {
 							System.out.println(graph.findPath(prime1, prime2));
 						} else {
-							System.out.println("Please input prime number between 1 to " + PrimesGraph.LIMIT + " only");
+							System.out.println("Please input prime number between 1 to "
+									+ "" + PrimesGraph.LIMIT + " only");
 						}
 					} else {
 						System.out.println("Please input prime number only");
@@ -49,8 +47,17 @@ public class Main {
 				break;
 			}
 		} while (scanner.hasNext());
-
 		scanner.close();
+		/*
+		long start =  System.currentTimeMillis();
+		System.out.println("connected: " + graph.areAllNodesConnected());
+		long end =  System.currentTimeMillis();
+		System.out.println("time:" + (end-start));
+		start =  System.currentTimeMillis();
+		System.out.println("maxium: " + graph.getMaxDistance());
+		end =  System.currentTimeMillis();
+		System.out.println("Time: " +(end-start));
+		*/
 		// System.out.println("Goodbye!");
 	}
 }
